@@ -1,0 +1,51 @@
+# non-project files to ignore
+*.bat
+*.ipynb
+*.jpg
+*.log
+*.p
+*.pdf
+*.pptx
+*.png
+*.pptx
+*.pyc
+*.pylintrc
+*.tmp
+*.txt
+*.xlsx
+tmp*.*
+*.old*
+*~*
+*.sav*
+*.zip
+Thumbs.db
+
+# config files (may have sensitive data)
+*.ini
+
+# streamlit secrets
+.streamlit
+
+# jupyter notebook and checkpoint files
+.ipynb_checkpoints/
+
+# archive and tmp folder files
+archive*/
+snapshot*/
+tmp*/
+*/tmp*.*
+*/tmp*/
+
+# ignore all models as some are very large
+# can be reproduced from Image Classifier notebook, if required
+models/*
+
+# override
+!requirements.txt
+!Catmon Image Classifier*.ipynb
+!Classify Catmon Image From Twitter Stream*.ipynb
+!Explore*.ipynb
+!Split Catmon Folders*.ipynb
+!images/*.jpg
+!models/catmon-img-classifier_mobilenet_v2_state_dict_0.3
+
