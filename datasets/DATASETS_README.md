@@ -23,7 +23,8 @@ kaggle datasets download terrydolan/catmon-cats-dataset
 4. Verify
  - you should now have a folder *./datasets/catmon_input* containing 
  3 folders:  
-```boo, simba, unknown
+```
+boo, simba, unknown
 ```  
      - the *boo* folder contains 1000 images of Boo
      - the *simba* folder contains 1000 images of Simba
@@ -38,6 +39,7 @@ are described on the [Kaggle catmon-cats-dataset](https://www.kaggle.com/dataset
 The *./datasets/catmon_input* is split, ready for modelling, by running the 
 *Split Catmon Folders.ipynb* notebook in the *root* folder.
 This generates the *./datasets/catmon* folder containing 3 folders:  
-```train, val, test
+```
+train, val, test
 ```  
 The split ratios are described in the notebook.
