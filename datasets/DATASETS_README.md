@@ -26,10 +26,10 @@ kaggle datasets download terrydolan/catmon-cats-dataset
 ```
 boo, simba, unknown
 ```
-     - the *boo* folder contains 1000 images of Boo
-     - the *simba* folder contains 1000 images of Simba
-     - the *unknown* folder contains 793 images in which Boo or Simba
-     Simba cannot be identified
+
+ - the *boo* folder contains 1000 images of Boo
+ - the *simba* folder contains 1000 images of Simba
+ - the *unknown* folder contains 793 images in which Boo or Simba cannot be identified
 
 ## Dataset Structure
 The *catmon_input* dataset structure, sources and collection methodology 
