@@ -25,10 +25,10 @@ Finally the accuracy of the model is tested with an 'unseen' test dataset.
 MobileNetV2 was selected because it has a small 'footprint', allowing the
 application and model to be deployed on a standard raspberry pi.
 
-## Dataset
+## Datasets
 The *catmon_input* folder containing the image data is available on Kaggle 
 for download. 
-See the datasets/DATASETS_README.md file for more information on the 
+See the *./datasets/DATASETS_README.md* file for more information on the 
 structure of the image data and how to download.
 
 ## Key Project Files
@@ -36,12 +36,14 @@ The 'catmonic.py' is the main python application.
 The logger configuration is in 'catmonic\_logger.py' and the private twitter
 data is in 'catmonic\_twitter.ini' (not shared).
 
-The 'Split Catmon Folders.ipynb' jupyter notebook splits the *./datasets/catmon_input* 
-image data (sourced from the *Catmon Image Tagger* application) into the *./datasets/catmon*) training, validation and test dataset. 
+The 'Split Catmon Folders.ipynb' jupyter notebook splits the 
+*./datasets/catmon_input* image data (sourced from the *Catmon Image Tagger* 
+application) into the *./datasets/catmon*) training, validation and test 
+dataset. 
 
 The 'Catmon Image Classifier Iteration3 mobilenet\_v2.ipynb' notebook
 generates the model from the *./datasets/catmon* dataset. 
-The trained model is available in the models folder.
+The trained model is available in the *models* folder.
 
 The 
 'Classify Catmon Image From Twitter Stream Using MOBILENET\_V2 CNN Model.ipynb'
