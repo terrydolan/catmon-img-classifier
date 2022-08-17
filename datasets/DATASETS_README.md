@@ -25,7 +25,7 @@ kaggle datasets download terrydolan/catmon-cats-dataset
  3 folders:  
 ```
 boo, simba, unknown
-```  
+```
      - the *boo* folder contains 1000 images of Boo
      - the *simba* folder contains 1000 images of Simba
      - the *unknown* folder contains 793 images in which Boo or Simba
@@ -41,5 +41,6 @@ The *./datasets/catmon_input* is split, ready for modelling, by running the
 This generates the *./datasets/catmon* folder containing 3 folders:  
 ```
 train, val, test
-```  
+```
+
 The split ratios are described in the notebook.
