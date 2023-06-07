@@ -2,7 +2,8 @@
 
 ## Introduction
 The *Catmon Image Classifier* (aka *Catmonic*) is a pytorch deep learning 
-module that classifies a boosimba cat image with the cat's name and a probability.
+module that classifies a boosimba cat image with the cat's name and a 
+probability.
 
 The model uses 'transfer learning' with a  pre-trained MobileNetV2 model 
 applied to the catmon dataset; MobileNetV2 is pre-trained with millions of 
@@ -15,9 +16,9 @@ MobileNetV2 was selected because it has a small 'footprint', allowing the
 application and model to be deployed on a standard raspberry pi.
 
 ## Apps
-The catmonic twitter app uses the catmonic image classifier to process the boosimba 
-cat image that is attached to an auto-tweet from *Catmon* and replies with the cat's 
-name.
+The catmonic twitter app uses the catmonic image classifier to process the 
+boosimba cat image that is attached to an auto-tweet from *Catmon* and replies 
+with the cat's name.
 
 The app's tweet handler 'listens' to the @boosimba tweet stream for tweets. 
 If the tweet is an auto-tweet from *Catmon* it downloads the embedded cat 
@@ -39,9 +40,6 @@ structure of the image data and how to download.
 The './apps/catmonic_twitter_app2.py' is the main python application.
 The logger configuration is in 'catmonic\_logger.py' and the private twitter
 data is in 'catmonic\_twitter.ini' (not shared).
-
-**Note that this app requires elevated twitter access and so it is 
-no longer active.**
 
 The './apps/catmonic_cli_app.py' is a simple python command line app that
 classifies a given catmon image file.
@@ -74,6 +72,11 @@ images.
 $python catmonic_twitter_app2.py
 $python catmonic_cli_app.py
 ```
+**Note that the twitter app requires elevated twitter access to run the stream 
+handler and so it is no longer active.**
+
+However it ran successfully for several months on a raspberry pi before Elon 
+pulled the plug.
 
 ## Catmonic Output
 The output from the running app can be seen as a reply to a catmon auto-tweet 
