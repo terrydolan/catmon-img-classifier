@@ -29,7 +29,7 @@ Thumbs.db
 .ipynb_checkpoints/
 
 # IDE
-.idea/  # pycharm
+.idea/*  # pycharm
 
 # archive and tmp folder files
 archive*/
