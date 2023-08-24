@@ -5,7 +5,6 @@
 *.log
 *.p
 *.pdf
-*.pptx
 *.png
 *.pptx
 *.pyc
@@ -28,6 +27,9 @@ Thumbs.db
 
 # jupyter notebook and checkpoint files
 .ipynb_checkpoints/
+
+# IDE
+.idea/  # pycharm
 
 # archive and tmp folder files
 archive*/

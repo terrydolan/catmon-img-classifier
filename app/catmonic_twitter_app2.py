@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Catmon image classifier (aka catmonic) twitter app.
+"""Catmon image classifier (aka catmonic) Twitter app.
 
-    Classify the boosimba cat image that is attached to an twitter auto-tweet 
+    Classify the boosimba cat image that is attached to a Twitter auto-tweet
     from catmon and reply with the cat's name.
 
     The boosimba tweet handler 'listens' on the @boosimba tweet stream for
@@ -21,28 +21,26 @@
     - Twitter stream handler now requires paid access, so no longer running!
 
     References:
-    -  For more information on the catmonic solution see the associated github
+    -  For more information on the catmonic solution see the associated GitHub
     project.
     
     To Do:
         1. Refactor to use catmonic module (done, V2 June 2023)
 
 """
-# add module root to system path and import catmonic module
-import os, sys
-module_root = os.path.join(os.path.abspath(__file__), "..\..")
-sys.path.append(module_root)
-import catmonic.catmonic as catmonic
-
+import os
+import sys
 from configparser import ConfigParser
 from datetime import datetime
 from io import BytesIO
-import os
 
-from catmonic_logger import logger
-from PIL import Image
 import requests
 import tweepy
+from PIL import Image
+
+sys.path.append("..")  # add parent folder to path
+import catmonic.catmonic as catmonic  # import folder.file as myModule
+from catmonic_logger import logger
 
 # ----------------------------------------------------------------------------
 __author__ = "Terry Dolan"
@@ -51,8 +49,8 @@ __copyright__ = "Terry Dolan"
 __license__ = "MIT"
 __email__ = "terry8dolan@gmail.com"
 __status__ = "Beta"
-__version__ = "0.2.0"
-__updated__ = "June 2023"
+__version__ = "0.2.1"
+__updated__ = "August 2023"
 
 # ----------------------------------------------------------------------------
 # Set-up
@@ -69,8 +67,10 @@ logger.debug(f"boosimba twitter user id is: {BOOSIMBA_TWITTER_USER_ID}")
 
 # ----------------------------------------------------------------------------
 # define twitter helper function
+
+
 def get_auth_info(TWITTER_CONFIG_FILE):
-    """Return twitter account name and auth info for twitter access."""
+    """Return Twitter account name and auth info for twitter access."""
 
     config_path = os.path.abspath(TWITTER_CONFIG_FILE)
 
@@ -78,7 +78,6 @@ def get_auth_info(TWITTER_CONFIG_FILE):
         raise FileNotFoundError(
             f"Unexpected error, file not found: '{TWITTER_CONFIG_FILE}'"
         )
-
 
     # parse the config file and read key twitter info
     cfg = ConfigParser()
@@ -101,6 +100,8 @@ def get_auth_info(TWITTER_CONFIG_FILE):
 
 # ----------------------------------------------------------------------------
 # define twitter stream handler class
+
+
 class BooSimbaTweetHandler(tweepy.Stream):
     """BooSimba tweet handler."""
 
@@ -136,8 +137,8 @@ class BooSimbaTweetHandler(tweepy.Stream):
         """Use api to post text as reply to tweet with given tweet_id."""
         try:
             api.update_status(
-                    status = text,
-                    in_reply_to_status_id = tweet_id,
+                    status=text,
+                    in_reply_to_status_id=tweet_id,
                     auto_populate_reply_metadata=True
             )
         except TypeError as e:
@@ -211,7 +212,7 @@ class BooSimbaTweetHandler(tweepy.Stream):
                     else:
                         logger.info("Tweeting of replies is switched off")
 
-                else: # label is 'unknown'
+                else:  # label is 'unknown'
                     logger.info("Cat cannot be identified")
             except KeyError:
                 logger.error("Unexpected error, could not access media")
@@ -228,19 +229,19 @@ class BooSimbaTweetHandler(tweepy.Stream):
     def on_error(self, status_code):
         """Handle error."""
         logger.error(f"Error detected: {status_code}")
-        return True # Don't kill the stream
+        return True  # Don't kill the stream
 
     def on_timeout(self):
         """Handle timeout."""
         logger.warning("Timeout detected")
-        return True # Don't kill the stream
+        return True  # Don't kill the stream
 
 
 def main():
     """Main program."""
     logger.info(f"Started catmonic twitter app at {datetime.now()} =========")
 
-    # get twitter account name and auth info
+    # get Twitter account name and auth info
     account_name, auth_info = get_auth_info(BOOSIMBA_TWITTER_CONFIG_FILE)
     assert account_name == 'boosimba', (
         f"Unexpected error, account_name '{account_name}' not recognised"

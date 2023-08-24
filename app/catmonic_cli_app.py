@@ -11,12 +11,12 @@
     the model name. There are 3 labels: 'boo', 'simba' or 'unknown'.
 
     The app is typically used with images from catmon. These can be seen on
-    the @boosimba twitter account.
+    the @boosimba Twitter account.
 
     Author: Terry Dolan
 
     References:
-    - For more information on the catmon* solution see the associated github
+    - For more information on the catmon* solution see the associated GitHub
     projects.
 
     To Do:
@@ -32,23 +32,24 @@ __copyright__ = "Terry Dolan"
 __license__ = "MIT"
 __email__ = "terry8dolan@gmail.com"
 __status__ = "Beta"
-__version__ = "0.1.0"
-__updated__ = "June 2023"
+__version__ = "0.1.1"
+__updated__ = "August 2023"
 
 # ----------------------------------------------------------------------------
 # Define imports
+import sys
 
-# add module root to system path and import catmonic module
-import os, sys
-module_root = os.path.join(os.path.abspath(__file__), "..\..")
-sys.path.append(module_root)
-import catmonic.catmonic as catmonic
-
-from PIL import Image
 import argparse
+from PIL import Image
+
+sys.path.append("..")  # add parent folder to path
+import catmonic.catmonic as catmonic  # import folder.file as myModule
+
 
 # ----------------------------------------------------------------------------
 # Define helper functions
+
+
 def open_image(image_path):
     """Return PIL image for given image file path."""
     try:
@@ -60,6 +61,8 @@ def open_image(image_path):
 
 # ----------------------------------------------------------------------------
 # Define main function
+
+
 def main():
     """Classify given image path using catmonic."""
     # Create the command-line argument parser
