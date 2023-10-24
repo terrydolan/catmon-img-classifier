@@ -24,10 +24,13 @@
     other apps.
 
     References:
-    - For more information on the catmon* solution see the associated github
+    - For more information on the catmon* solution see the associated GitHub
     projects.
 
     To Do:
+
+    Changes:
+    1. 24th October 2023: Use 'importlib.resources' to improve handling of model file in package
 
 """
 
@@ -39,17 +42,21 @@ __copyright__ = "Terry Dolan"
 __license__ = "MIT"
 __email__ = "terry8dolan@gmail.com"
 __status__ = "Beta"
-__version__ = "0.1.0"
-__updated__ = "June 2023"
+__version__ = "0.1.1"
+__updated__ = "October 2023"
 
 # ----------------------------------------------------------------------------
 # define imports
+from importlib.resources import files
+
 from torch import nn
 from torchvision import transforms, models
 import torch
 
+
 # ----------------------------------------------------------------------------
 # define Catmonic class
+
 
 class Catmonic:
     # define class wide variables
@@ -60,24 +67,22 @@ class Catmonic:
     # define image transform
     # - as used during model transfer learning, training and test
     MEAN = [0.485, 0.456, 0.406]
-    STD  = [0.229, 0.224, 0.225]
+    STD = [0.229, 0.224, 0.225]
 
     TRANSFORM = transforms.Compose([
         transforms.Resize(256),
         transforms.CenterCrop(224),
         transforms.ToTensor(),
-        transforms.Normalize(mean=MEAN,
-                              std=STD)
+        transforms.Normalize(mean=MEAN, std=STD)
         ])
 
     # define device
     DEVICE = "cpu"
 
     # define location of model state dict containing key paramaters
-    MODEL_SD = "../models/catmon-img-classifier_mobilenet_v2_state_dict_0.3"
+    MODEL_SD = files('catmonic.models').joinpath('catmon-img-classifier_mobilenet_v2_state_dict_0.3')
 
     def __init__(self):
-
         # prepare the model
         self.model = self._prepare_mobilenet_v2_model()
         self.model_name = self.model.__class__.__name__

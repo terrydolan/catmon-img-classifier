@@ -28,8 +28,9 @@ Thumbs.db
 # jupyter notebook and checkpoint files
 .ipynb_checkpoints/
 
-# IDE
-.idea/*  # pycharm
+# IDE, pycharm
+.idea/
+/.idea
 
 # archive and tmp folder files
 archive*/
