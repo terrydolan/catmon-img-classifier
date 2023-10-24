@@ -2,8 +2,7 @@
 
 ## Introduction
 The *Catmon Image Classifier* (aka *Catmonic*) is a pytorch deep learning 
-module that classifies a boosimba cat image with the cat's name and a 
-probability.
+module that classifies a *Catmon* image with the cat's name and a probability.
 The classifier returns a label and a probability; there are 3 possible labels: 
 'boo', 'simba' or 'unknown'.
 
